@@ -47,6 +47,7 @@
     },
     "contentHints": {
         "epub": "This file is an EPUB e-book: use the Convert an e-book to PDF module.",
+        "xps": "This file is an XPS document: use the Convert an XPS document to PDF module.",
         "iwork_numbers": "This file is a Numbers spreadsheet, which Conv2pdf does not convert. Open it in Numbers and choose File > Export To > PDF.",
         "iwork_keynote": "This file is a Keynote presentation, which Conv2pdf does not convert. Open it in Keynote and choose File > Export To > PDF.",
         "iwork": "Conv2pdf converts Apple Pages documents only, named with their .pages extension."

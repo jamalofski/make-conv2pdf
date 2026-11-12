@@ -99,6 +99,22 @@
                     "scope": "modules/convertEpubToPdf/convertEpubToPdf.scope.iml.json"
                 }
             },
+            "convertXpsToPdf": {
+                "label": "Convert an XPS document to PDF",
+                "description": "Converts an XPS or OpenXPS document to PDF, each page at its own size, with its text, links and outline.",
+                "moduleType": "action",
+                "actionCrud": "create",
+                "connection": "conv2pdf",
+                "altConnection": null,
+                "codeFiles": {
+                    "communication": "modules/convertXpsToPdf/convertXpsToPdf.communication.iml.json",
+                    "staticParams": "modules/convertXpsToPdf/convertXpsToPdf.static-params.iml.json",
+                    "mappableParams": "modules/convertXpsToPdf/convertXpsToPdf.mappable-params.iml.json",
+                    "interface": "modules/convertXpsToPdf/convertXpsToPdf.interface.iml.json",
+                    "samples": "modules/convertXpsToPdf/convertXpsToPdf.samples.iml.json",
+                    "scope": "modules/convertXpsToPdf/convertXpsToPdf.scope.iml.json"
+                }
+            },
             "convertPdfToWord": {
                 "label": "Convert a PDF to Word",
                 "description": "Converts a PDF to an editable Word (DOCX) document. The PDF must contain text: scanned pages without text cannot be converted.",

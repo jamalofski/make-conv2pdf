@@ -1,6 +1,6 @@
 # Conv2pdf for Make
 
-The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/en/api/): it converts Word, Excel, PowerPoint, Pages, images, HEIC photos and EPUB e-books to PDF, merges, compresses, numbers and secures PDFs, and converts PDFs to Word, on servers in France.
+The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/en/api/): it converts Word, Excel, PowerPoint, Pages, images, HEIC photos, EPUB e-books and XPS documents to PDF, merges, compresses, numbers and secures PDFs, and converts PDFs to Word, on servers in France.
 
 ## Modules
 
@@ -11,6 +11,7 @@ The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/
 | | Convert a HEIC photo to PDF | `heic-to-pdf` |
 | | Convert a HEIC photo to JPG | `heic-to-jpg` |
 | | Convert an e-book to PDF | `epub-to-pdf` |
+| | Convert an XPS document to PDF | `xps-to-pdf` |
 | | Convert a PDF to Word | `pdf-to-word` |
 | | Convert a PDF to images | `pdf-to-image` |
 | Edit PDFs | Merge PDFs | `merge-pdf` |
@@ -30,7 +31,7 @@ The connection asks for a Conv2pdf API key, created in the Developer tab of the 
 
 ## How it behaves
 
-- The error codes of Conv2pdf decide the Make error type. A problem with the file or the options of the run (`unsupported_content`, `file_too_large`, `pdf_scanned_needs_ocr`, `conversion_failed`...) raises a `DataError`, which Make can keep as an incomplete execution. A revoked key raises `InvalidAccessTokenError`, which deactivates the scenario.
+- The error codes of Conv2pdf decide the Make error type. A problem with the file or the options of the run (`unsupported_content`, `file_too_large`, `pdf_scanned_needs_ocr`, `conversion_failed`...) raises a `DataError`, which Make can keep as an incomplete execution. A file that another module expects, such as an e-book or an XPS document, gets a message that names that module, and `too_many_pages` gives the page count of the document and the limit of the module. A revoked key raises `InvalidAccessTokenError`, which deactivates the scenario.
 - Conv2pdf answers `429` both for a used-up quota and for the rate limit: `quota_exceeded` becomes a `RuntimeError`, since retrying cannot help, and `rate_limited` stays a `RateLimitError`, which Make retries after a pause. `5xx` answers such as `503 server_busy` are `ConnectionError`s, which Make retries.
 - The seven modules whose tool opens a protected PDF (Convert a PDF to Word, Convert a PDF to images, Extract pages, Rotate, Add page numbers, Add a watermark, Compress) send the optional **PDF password** field as `password`; the logs hide it, like the API key.
 - The messages for each Conv2pdf error code are in the common data (`src/general/common.json`), because Make caps an error message expression at 1024 characters.
