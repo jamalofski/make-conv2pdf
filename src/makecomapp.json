@@ -453,6 +453,30 @@
                     {
                         "local": "makeApiCall",
                         "remote": "makeApiCall"
+                    },
+                    {
+                        "local": "convertEpubToPdf",
+                        "remote": "convertEpubToPdf"
+                    },
+                    {
+                        "local": "convertXpsToPdf",
+                        "remote": "convertXpsToPdf"
+                    },
+                    {
+                        "local": "convertPostscriptToPdf",
+                        "remote": "convertPostscriptToPdf"
+                    },
+                    {
+                        "local": "convertHtmlToPdf",
+                        "remote": "convertHtmlToPdf"
+                    },
+                    {
+                        "local": "convertWebPageToPdf",
+                        "remote": "convertWebPageToPdf"
+                    },
+                    {
+                        "local": "splitPdf",
+                        "remote": "splitPdf"
                     }
                 ],
                 "function": [],
