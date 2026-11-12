@@ -1,6 +1,6 @@
 [
     {
-        "url": "/convert/split-pdf",
+        "url": "/convert/extract-pages",
         "method": "POST",
         "type": "multipart/form-data",
         "body": {

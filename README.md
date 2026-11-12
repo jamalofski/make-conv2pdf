@@ -1,6 +1,6 @@
 # Conv2pdf for Make
 
-The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/en/api/): it converts Word, Excel, PowerPoint, Pages, images, HEIC photos, EPUB e-books and XPS documents to PDF, merges, compresses, numbers and secures PDFs, and converts PDFs to Word, on servers in France.
+The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/en/api/): it converts Word, Excel, PowerPoint, Pages, images, HEIC photos, EPUB e-books, XPS, PostScript and HTML files and web pages to PDF, merges, splits, compresses, numbers and secures PDFs, and converts PDFs to Word, on servers in France.
 
 ## Modules
 
@@ -12,10 +12,14 @@ The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/
 | | Convert a HEIC photo to JPG | `heic-to-jpg` |
 | | Convert an e-book to PDF | `epub-to-pdf` |
 | | Convert an XPS document to PDF | `xps-to-pdf` |
+| | Convert a PostScript file to PDF | `ps-to-pdf` |
+| | Convert an HTML file to PDF | `html-to-pdf` |
+| | Convert a web page to PDF | `url-to-pdf` |
 | | Convert a PDF to Word | `pdf-to-word` |
 | | Convert a PDF to images | `pdf-to-image` |
 | Edit PDFs | Merge PDFs | `merge-pdf` |
-| | Extract pages from a PDF | `split-pdf` |
+| | Extract pages from a PDF | `extract-pages` |
+| | Split a PDF | `split-pdf` |
 | | Rotate a PDF | `rotate-pdf` |
 | | Add page numbers to a PDF | `page-numbers-pdf` |
 | | Add a watermark to a PDF | `watermark-pdf` |
@@ -25,15 +29,15 @@ The [Make](https://www.make.com) app of the [Conv2pdf API](https://conv2pdf.com/
 | Account | Get quota | `GET /v1/quota` |
 | Other | Make an API call | any path under `https://api.conv2pdf.com` |
 
-Each file module sends the mapped file to `POST /v1/convert/{tool}` as multipart/form-data, then downloads the result from `GET /v1/download/{job_id}` in the same module and returns it as a Make file, with its size and the quota of the API key. Conv2pdf deletes the files one hour after the conversion.
+Each file module sends the mapped file to `POST /v1/convert/{tool}` as multipart/form-data, then downloads the result from `GET /v1/download/{job_id}` in the same module and returns it as a Make file, with its size and the quota of the API key. Convert a web page to PDF sends the address of the page in the `url` field instead of a file. Conv2pdf deletes the files one hour after the conversion.
 
 The connection asks for a Conv2pdf API key, created in the Developer tab of the [Conv2pdf dashboard](https://conv2pdf.com/en/dashboard/#developer), and checks it against `GET /v1/quota`, which uses no conversion. The key is sent only to `api.conv2pdf.com`.
 
 ## How it behaves
 
-- The error codes of Conv2pdf decide the Make error type. A problem with the file or the options of the run (`unsupported_content`, `file_too_large`, `pdf_scanned_needs_ocr`, `conversion_failed`...) raises a `DataError`, which Make can keep as an incomplete execution. A file that another module expects, such as an e-book or an XPS document, gets a message that names that module, and `too_many_pages` gives the page count of the document and the limit of the module. A revoked key raises `InvalidAccessTokenError`, which deactivates the scenario.
+- The error codes of Conv2pdf decide the Make error type. A problem with the file or the options of the run (`unsupported_content`, `file_too_large`, `pdf_scanned_needs_ocr`, `conversion_failed`...) raises a `DataError`, which Make can keep as an incomplete execution. A file that another module expects, such as an e-book or an XPS document, gets a message that names that module, and `too_many_pages` gives the page count of the document and the limit of the module. A refused web page address gets the reason Conv2pdf gives (`cause`), and a page that answers with an error gets its HTTP status. A revoked key raises `InvalidAccessTokenError`, which deactivates the scenario.
 - Conv2pdf answers `429` both for a used-up quota and for the rate limit: `quota_exceeded` becomes a `RuntimeError`, since retrying cannot help, and `rate_limited` stays a `RateLimitError`, which Make retries after a pause. `5xx` answers such as `503 server_busy` are `ConnectionError`s, which Make retries.
-- The seven modules whose tool opens a protected PDF (Convert a PDF to Word, Convert a PDF to images, Extract pages, Rotate, Add page numbers, Add a watermark, Compress) send the optional **PDF password** field as `password`; the logs hide it, like the API key.
+- The eight modules whose tool opens a protected PDF (Convert a PDF to Word, Convert a PDF to images, Extract pages, Split, Rotate, Add page numbers, Add a watermark, Compress) send the optional **PDF password** field as `password`; the logs hide it, like the API key.
 - The messages for each Conv2pdf error code are in the common data (`src/general/common.json`), because Make caps an error message expression at 1024 characters.
 - A conversion can take up to 90 seconds on Conv2pdf's side: the app raises Make's 40-second request timeout to 120 seconds, like the Conv2pdf node for n8n.
 

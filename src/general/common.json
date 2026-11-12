@@ -43,11 +43,30 @@
         "invalid_format": "The format is not one Conv2pdf accepts for this module.",
         "unsupported_format": "Conv2pdf cannot read this image format. Use a PNG, JPG, WebP, GIF or TIFF image.",
         "epub_blank_output": "This e-book cannot be converted: its pages are full-screen images (comics, picture books, manga), and their layout does not survive the conversion to PDF.",
-        "epub_too_long": "The e-book is longer than the 1,500 pages Conv2pdf converts at once."
+        "epub_too_long": "The e-book is longer than the 1,500 pages Conv2pdf converts at once.",
+        "pdf_single_page": "This PDF has a single page: there is nothing to split.",
+        "ps_blank_output": "This PostScript file draws no page: a file that only holds a font or a library of procedures, or whose program fails, produces none.",
+        "html_blank_output": "This HTML file prints as a blank page: nothing in it is drawn when printed. It may be empty, or hide its content for printing.",
+        "invalid_url": "This web page address cannot be converted.",
+        "url_unreachable": "The web page could not be reached. Check the address, and that the site is online and public.",
+        "url_http_error": "The web page answered with an error. Check that the address opens in a browser without signing in: Conv2pdf opens the page without a session.",
+        "url_blocked": "The web page leads to a private network address: Conv2pdf only opens public web pages, and the page or one of its redirects points to a private or local network.",
+        "url_blank_page": "The web page prints as a blank page: its content may need a login, or be hidden for printing.",
+        "no_file_expected": "Convert a web page to PDF takes the address of a page, not a file."
+    },
+    "urlCauses": {
+        "malformed": "Write the full address, starting with https:// or http://.",
+        "scheme": "Only http and https addresses can be converted.",
+        "credentials": "Remove the user name and password from the address: Conv2pdf opens the page without signing in.",
+        "private_address": "Conv2pdf only opens public web pages, not addresses of a private or local network.",
+        "local_name": "Conv2pdf only opens public web pages, not names of a local network.",
+        "too_long": "The address is too long."
     },
     "contentHints": {
         "epub": "This file is an EPUB e-book: use the Convert an e-book to PDF module.",
         "xps": "This file is an XPS document: use the Convert an XPS document to PDF module.",
+        "postscript": "This file is PostScript or EPS: use the Convert a PostScript file to PDF module.",
+        "html": "This file contains a web page, not the expected document. Map the file itself: a share or preview link returns the page that displays the file. To convert an HTML file, use the Convert an HTML file to PDF module.",
         "iwork_numbers": "This file is a Numbers spreadsheet, which Conv2pdf does not convert. Open it in Numbers and choose File > Export To > PDF.",
         "iwork_keynote": "This file is a Keynote presentation, which Conv2pdf does not convert. Open it in Keynote and choose File > Export To > PDF.",
         "iwork": "Conv2pdf converts Apple Pages documents only, named with their .pages extension."

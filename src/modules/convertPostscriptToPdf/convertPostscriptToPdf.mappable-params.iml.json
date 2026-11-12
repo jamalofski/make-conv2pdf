@@ -1,0 +1,18 @@
+[
+    {
+        "name": "fileName",
+        "type": "filename",
+        "label": "File name",
+        "required": true,
+        "semantic": "file:name",
+        "help": "Name of the file, with its extension. For example, `drawing.ps` or `logo.eps`."
+    },
+    {
+        "name": "data",
+        "type": "buffer",
+        "label": "Data",
+        "required": true,
+        "semantic": "file:data",
+        "help": "Content of the PostScript (.ps) or EPS (.eps) file to convert, up to 1,500 pages."
+    }
+]

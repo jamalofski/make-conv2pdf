@@ -1,6 +1,6 @@
 {
     "label": "Conv2pdf",
-    "description": "Converts Word, Excel, PowerPoint and images to PDF, merges, compresses and secures PDFs, and converts PDFs to Word, on servers in France.",
+    "description": "Converts documents, images, photos, e-books, XPS, PostScript and HTML files and web pages to PDF, merges, splits, compresses and secures PDFs, and converts PDFs to Word, on servers in France.",
     "theme": "#E44A30",
     "language": "en",
     "icon": "branding/make-logo-512.png"

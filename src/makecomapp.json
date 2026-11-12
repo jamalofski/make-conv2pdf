@@ -115,6 +115,54 @@
                     "scope": "modules/convertXpsToPdf/convertXpsToPdf.scope.iml.json"
                 }
             },
+            "convertPostscriptToPdf": {
+                "label": "Convert a PostScript file to PDF",
+                "description": "Converts a PostScript (PS) or EPS file to PDF, keeping its text as text and its drawings as vectors.",
+                "moduleType": "action",
+                "actionCrud": "create",
+                "connection": "conv2pdf",
+                "altConnection": null,
+                "codeFiles": {
+                    "communication": "modules/convertPostscriptToPdf/convertPostscriptToPdf.communication.iml.json",
+                    "staticParams": "modules/convertPostscriptToPdf/convertPostscriptToPdf.static-params.iml.json",
+                    "mappableParams": "modules/convertPostscriptToPdf/convertPostscriptToPdf.mappable-params.iml.json",
+                    "interface": "modules/convertPostscriptToPdf/convertPostscriptToPdf.interface.iml.json",
+                    "samples": "modules/convertPostscriptToPdf/convertPostscriptToPdf.samples.iml.json",
+                    "scope": "modules/convertPostscriptToPdf/convertPostscriptToPdf.scope.iml.json"
+                }
+            },
+            "convertHtmlToPdf": {
+                "label": "Convert an HTML file to PDF",
+                "description": "Converts an HTML file to PDF, printed as a browser would: the text stays selectable and the links work.",
+                "moduleType": "action",
+                "actionCrud": "create",
+                "connection": "conv2pdf",
+                "altConnection": null,
+                "codeFiles": {
+                    "communication": "modules/convertHtmlToPdf/convertHtmlToPdf.communication.iml.json",
+                    "staticParams": "modules/convertHtmlToPdf/convertHtmlToPdf.static-params.iml.json",
+                    "mappableParams": "modules/convertHtmlToPdf/convertHtmlToPdf.mappable-params.iml.json",
+                    "interface": "modules/convertHtmlToPdf/convertHtmlToPdf.interface.iml.json",
+                    "samples": "modules/convertHtmlToPdf/convertHtmlToPdf.samples.iml.json",
+                    "scope": "modules/convertHtmlToPdf/convertHtmlToPdf.scope.iml.json"
+                }
+            },
+            "convertWebPageToPdf": {
+                "label": "Convert a web page to PDF",
+                "description": "Converts the public web page at an address to PDF, printed as a browser would.",
+                "moduleType": "action",
+                "actionCrud": "create",
+                "connection": "conv2pdf",
+                "altConnection": null,
+                "codeFiles": {
+                    "communication": "modules/convertWebPageToPdf/convertWebPageToPdf.communication.iml.json",
+                    "staticParams": "modules/convertWebPageToPdf/convertWebPageToPdf.static-params.iml.json",
+                    "mappableParams": "modules/convertWebPageToPdf/convertWebPageToPdf.mappable-params.iml.json",
+                    "interface": "modules/convertWebPageToPdf/convertWebPageToPdf.interface.iml.json",
+                    "samples": "modules/convertWebPageToPdf/convertWebPageToPdf.samples.iml.json",
+                    "scope": "modules/convertWebPageToPdf/convertWebPageToPdf.scope.iml.json"
+                }
+            },
             "convertPdfToWord": {
                 "label": "Convert a PDF to Word",
                 "description": "Converts a PDF to an editable Word (DOCX) document. The PDF must contain text: scanned pages without text cannot be converted.",
@@ -177,6 +225,22 @@
                     "interface": "modules/extractPdfPages/extractPdfPages.interface.iml.json",
                     "samples": "modules/extractPdfPages/extractPdfPages.samples.iml.json",
                     "scope": "modules/extractPdfPages/extractPdfPages.scope.iml.json"
+                }
+            },
+            "splitPdf": {
+                "label": "Split a PDF",
+                "description": "Puts every page of a PDF in its own PDF file, returned in a ZIP file.",
+                "moduleType": "action",
+                "actionCrud": "create",
+                "connection": "conv2pdf",
+                "altConnection": null,
+                "codeFiles": {
+                    "communication": "modules/splitPdf/splitPdf.communication.iml.json",
+                    "staticParams": "modules/splitPdf/splitPdf.static-params.iml.json",
+                    "mappableParams": "modules/splitPdf/splitPdf.mappable-params.iml.json",
+                    "interface": "modules/splitPdf/splitPdf.interface.iml.json",
+                    "samples": "modules/splitPdf/splitPdf.samples.iml.json",
+                    "scope": "modules/splitPdf/splitPdf.scope.iml.json"
                 }
             },
             "rotatePdf": {

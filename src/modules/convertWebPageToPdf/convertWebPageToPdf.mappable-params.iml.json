@@ -1,0 +1,9 @@
+[
+    {
+        "name": "url",
+        "type": "url",
+        "label": "Web page address",
+        "required": true,
+        "help": "The full address of a public page, such as `https://example.com/pricing`. Conv2pdf opens it without signing in, so a page behind a login is out of reach."
+    }
+]

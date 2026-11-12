@@ -1,6 +1,6 @@
 # Conv2pdf
 
-[Conv2pdf](https://conv2pdf.com/en/api/) converts Word, Excel, PowerPoint, Pages, images, HEIC photos, EPUB e-books and XPS documents to PDF, merges, compresses, numbers and secures PDFs, and converts PDFs to Word, on servers in France.
+[Conv2pdf](https://conv2pdf.com/en/api/) converts Word, Excel, PowerPoint, Pages, images, HEIC photos, EPUB e-books, XPS, PostScript and HTML files and web pages to PDF, merges, splits, compresses, numbers and secures PDFs, and converts PDFs to Word, on servers in France.
 
 ## Connect Conv2pdf to Make
 
@@ -12,10 +12,10 @@ Make checks the key by reading its quota, which uses no conversion.
 
 ## Modules
 
-Every module takes a file from a previous module, for example a file downloaded from Google Drive or received by email, and returns the result as a file for the next modules, with its size and the quota of the API key. Each module uses one conversion.
+Every module but Convert a web page to PDF takes a file from a previous module, for example a file downloaded from Google Drive or received by email. Each returns the result as a file for the next modules, with its size and the quota of the API key. Each module uses one conversion.
 
-- **Convert files**: Convert a document to PDF, Convert an image to PDF, Convert a HEIC photo to PDF, Convert a HEIC photo to JPG, Convert an e-book to PDF, Convert an XPS document to PDF, Convert a PDF to Word, Convert a PDF to images (a ZIP file of PNG or JPG images).
-- **Edit PDFs**: Merge PDFs, Extract pages from a PDF, Rotate a PDF, Add page numbers to a PDF, Add a watermark to a PDF, Compress a PDF.
+- **Convert files**: Convert a document to PDF, Convert an image to PDF, Convert a HEIC photo to PDF, Convert a HEIC photo to JPG, Convert an e-book to PDF, Convert an XPS document to PDF, Convert a PostScript file to PDF, Convert an HTML file to PDF, Convert a web page to PDF (from its address, without a file), Convert a PDF to Word, Convert a PDF to images (a ZIP file of PNG or JPG images).
+- **Edit PDFs**: Merge PDFs, Extract pages from a PDF, Split a PDF (one PDF per page, in a ZIP file), Rotate a PDF, Add page numbers to a PDF, Add a watermark to a PDF, Compress a PDF.
 - **Secure PDFs**: Protect a PDF with a password, Remove a password from a PDF.
 - **Get quota** returns the plan, the conversions used and the limits of the API key.
 - **Make an API call** sends any request to the [Conv2pdf API](https://conv2pdf.com/en/api/docs/) with your connection.

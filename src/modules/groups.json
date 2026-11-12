@@ -8,6 +8,9 @@
             "convertHeicToJpg",
             "convertEpubToPdf",
             "convertXpsToPdf",
+            "convertPostscriptToPdf",
+            "convertHtmlToPdf",
+            "convertWebPageToPdf",
             "convertPdfToWord",
             "convertPdfToImages"
         ]
@@ -17,6 +20,7 @@
         "modules": [
             "mergePdfs",
             "extractPdfPages",
+            "splitPdf",
             "rotatePdf",
             "addPageNumbers",
             "addWatermark",

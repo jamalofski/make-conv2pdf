@@ -1,0 +1,25 @@
+[
+    {
+        "name": "fileName",
+        "type": "filename",
+        "label": "File name",
+        "required": true,
+        "semantic": "file:name",
+        "help": "Name of the file, with its extension. For example, `report.pdf`."
+    },
+    {
+        "name": "data",
+        "type": "buffer",
+        "label": "Data",
+        "required": true,
+        "semantic": "file:data",
+        "help": "Content of the PDF to split, up to 200 pages. The ZIP file holds page-001.pdf, page-002.pdf and so on."
+    },
+    {
+        "name": "password",
+        "type": "text",
+        "label": "PDF password",
+        "required": false,
+        "help": "Only for a PDF that asks for a password to open. The result has no password."
+    }
+]
